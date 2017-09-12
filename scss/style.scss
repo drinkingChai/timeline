@@ -9,6 +9,8 @@ font-family: 'Roboto', sans-serif;
 h5 { font-size: 1.3em; }
 h1,h2,h3,h4,h5,h6 { font-family: 'Roboto Slab', serif; }
 
+nav { box-shadow: 0 4px 4px -3px #888; }
+
 body {
   // background-color: #333;
   background-repeat: no-repeat;
@@ -22,11 +24,15 @@ body {
   border-radius: 3px;
   height: 100%;
   padding: 10px;
-  transition: background-color 0.2s;
+  transition: background-color 0.5s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px -3px #DDD;
 
-  &:hover {
-    background-color: #EFEFEF;
+  &:hover, .active {
+    background-color: #F8F8F8;
+    box-shadow: 0 3px 4px -3px #DDD;
   }
+
+  &-col & { margin-bottom: 10px; }
 }
 
 li {

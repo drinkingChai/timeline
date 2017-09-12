@@ -24,7 +24,7 @@ class SingleTimeline extends Component {
     return (
       <div className="row">
         <h3 className="row">{ timeline.name }</h3>
-        <div className="col-2">
+        <div className="col-2 card-col">
         {
           timeline.stories.map(story=> (
             <a onClick={ ()=> this.clickStory(story) } className="clickable" key={ story.id }>

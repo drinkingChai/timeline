@@ -12,6 +12,9 @@ h5 {
 h1, h2, h3, h4, h5, h6 {
   font-family: 'Roboto Slab', serif; }
 
+nav {
+  box-shadow: 0 4px 4px -3px #888; }
+
 body {
   background-repeat: no-repeat;
   background-position: fixed;
@@ -23,9 +26,13 @@ body {
   border-radius: 3px;
   height: 100%;
   padding: 10px;
-  transition: background-color 0.2s; }
-  .card:hover {
-    background-color: #EFEFEF; }
+  transition: background-color 0.5s, box-shadow 0.2s;
+  box-shadow: 0 4px 6px -3px #DDD; }
+  .card:hover, .card .active {
+    background-color: #F8F8F8;
+    box-shadow: 0 3px 4px -3px #DDD; }
+  .card-col .card {
+    margin-bottom: 10px; }
 
 li {
   list-style-type: none; }
