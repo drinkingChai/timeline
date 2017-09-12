@@ -8,7 +8,7 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <h1>My Biking Timeline!</h1>
+        <h1>Make a timeline!</h1>
       </div>
     )
   }

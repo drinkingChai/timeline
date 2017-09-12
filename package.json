@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack -w & DATABASE_URL=postgres://localhost/mybking nodemon server.js --ignore browser/ --ignore dist/"
+    "start:dev": "webpack -w & DATABASE_URL=postgres://localhost/timeline nodemon server.js --ignore browser/ --ignore dist/"
   },
   "keywords": [],
   "author": "",
