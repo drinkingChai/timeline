@@ -15,9 +15,8 @@ class SingleStory extends Component {
   }
   render() {
     const { story } = this.state
-    console.log(story.timelines);
     return (
-      <div>
+      <div className="row">
         <h3>{ story.title }</h3>
         <h4>{ story.date }</h4>
         <p>{ story.description }</p>

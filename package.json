@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start:dev": "webpack -w & DATABASE_URL=postgres://localhost/timeline nodemon server.js --ignore browser/ --ignore dist/"
+    "postinstall": "webpack",
+    "start:dev": "webpack -w & DATABASE_URL=postgres://localhost/timeline nodemon server.js --ignore browser/ --ignore dist/ --ignore scss/",
+    "build:css": "node-sass -w scss -o public/stylesheets"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +25,7 @@
     "babel-loader": "^7.1.2",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "node-sass": "^4.5.3",
     "webpack": "^3.5.6"
   }
 }

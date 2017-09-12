@@ -47,12 +47,13 @@ const seed = ()=> {
 const app = express()
 app.use(express.static(`${__dirname}/browser`))
 app.use('/dist', express.static(`${__dirname}/dist`))
+app.use('/stylesheets', express.static(`${__dirname}/public/stylesheets`))
 app.get('/', (req, res, next)=> res.send('index.html'))
 
 
 // api
 app.get('/api/stories', (req, res, next)=> {
-  Story.findAll()
+  Story.findAll({ order: [ 'date' ] })
   .then(stories=> res.send(stories))
 })
 app.get('/api/stories/:id', (req, res, next)=> {
@@ -64,7 +65,7 @@ app.get('/api/timelines', (req, res, next)=> {
   .then(timelines=> res.send(timelines))
 })
 app.get('/api/timelines/:id', (req, res, next)=> {
-  Timeline.findById(req.params.id, { include: [ Story ]})
+  Timeline.findById(req.params.id, { include: [ { model: Story, order: [ 'date' ] }]})
   .then(timeline=> res.send(timeline))
 })
 //

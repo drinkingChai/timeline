@@ -16,10 +16,14 @@ class AllTimelines extends Component {
     const { timelines } = this.state
     // start date, end date determined by events?
     return (
-      <div>
+      <div className="row">
         {
           timelines.map(timeline=> (
-            <li key={ timeline.id }><Link to={ `/timelines/${timeline.id}` }>{ timeline.name }</Link></li>
+            <li className="col-md-2" key={ timeline.id }>
+              <Link to={ `/timelines/${timeline.id}` }>
+                <h4>{ timeline.name }</h4>
+              </Link>
+            </li>
           ))
         }
       </div>

@@ -1,11 +1,12 @@
 import React, { Component } from 'react'
-import { HashRouter as Router, Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 import Nav from './Nav'
 
 import AllStories from './AllStories'
 import SingleStory from './SingleStory'
 import AllTimelines from './AllTimelines'
 import SingleTimeline from './SingleTimeline'
+import NoMatch from './NoMatch'
 
 class Main extends Component {
   constructor() {
@@ -15,17 +16,15 @@ class Main extends Component {
   render() {
     return (
       <div>
-        <Router>
-          <div>
-            <Nav />
-            <hr/>
+        <Nav />
 
-            <Route exact path="/stories" component={ AllStories }/>
-            <Route path="/stories/:id" component={ SingleStory }/>
-            <Route exact path="/timelines" component={ AllTimelines }/>
-            <Route path="/timelines/:id" component={ SingleTimeline }/>
-          </div>
-        </Router>
+        <Switch>
+          <Route exact path="/stories" component={ AllStories }/>
+          <Route path="/stories/:id" component={ SingleStory }/>
+          <Route exact path="/timelines" component={ AllTimelines }/>
+          <Route path="/timelines/:id" component={ SingleTimeline }/>
+          <Route component={ NoMatch }/>
+        </Switch>
       </div>
     )
   }

@@ -15,10 +15,15 @@ class AllStories extends Component {
   render() {
     const { stories } = this.state
     return (
-      <div>
+      <div className="row">
         {
           stories.map(story=> (
-            <li key={ story.id }><Link to={ `/stories/${story.id}` }>{ story.title }</Link></li>
+            <li className="card col-md-2" key={ story.id }>
+              <Link to={ `/stories/${story.id}` }>
+                <h4>{ story.title }</h4>
+                <p>{ story.date }</p>
+              </Link>
+            </li>
           ))
         }
       </div>

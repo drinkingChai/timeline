@@ -17,16 +17,18 @@ class SingleTimeline extends Component {
     const { timeline } = this.state
     // start date, end date determined by events?
     return (
-      <div>
-        <h3>{ timeline.name }</h3>
+      <div className="row">
+        <h3 className="row">{ timeline.name }</h3>
+        <div className="row">
         {
           timeline.stories.map(story=> (
-            <div key={ story.id }>
+            <div className="col-md-2" key={ story.id }>
               <h4>{ story.title }</h4>
               <h5>{ story.date }</h5>
             </div>
           ))
         }
+        </div>
       </div>
     )
   }
