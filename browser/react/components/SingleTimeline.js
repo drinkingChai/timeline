@@ -17,7 +17,7 @@ class SingleTimeline extends Component {
     const { timeline } = this.state
     // start date, end date determined by events?
     return (
-      <div className="row">
+      <div>
         <h3 className="row">{ timeline.name }</h3>
         <div className="row">
         {

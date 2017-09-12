@@ -17,16 +17,17 @@ class SingleStory extends Component {
     const { story } = this.state
     return (
       <div className="row">
-        <h3>{ story.title }</h3>
-        <h4>{ story.date }</h4>
-        <p>{ story.description }</p>
-        {
-          story.timelines.map(tl=> (
-            <li key={ tl.id }><Link to={ `/timelines/${tl.id}` }>{ tl.name }</Link></li>
-          ))
+        <div className="row">
+          <h3>{ story.title }</h3>
+          <h4>{ story.date }</h4>
+          <p>{ story.description }</p>
+          {
+            story.timelines.map(tl=> (
+              <li key={ tl.id }><Link to={ `/timelines/${tl.id}` }>{ tl.name }</Link></li>
+            ))
 
-        }
-
+          }
+        </div>
       </div>
     )
   }
