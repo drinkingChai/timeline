@@ -23,11 +23,11 @@ Timeline.belongsToMany(Story, { through: 'stuff_timeline' })
 
 const seed = ()=> {
   return Promise.all([
-    Story.create({ title: 'Started biking!', date: '7/10/94' }),
-    Story.create({ title: 'Bought my own bike!', date: '2/2/14' }),
-    Story.create({ title: 'Did the NYC Century', date: '9/30/14' }),
-    Story.create({ title: 'Harpoon Point to Point', date: '8/6/15' }),
-    Story.create({ title: 'Joined NYCC!', date: '3/1/16' }),
+    Story.create({ title: 'Learned to ride!', date: '7/10/94', description: 'Lorem ipsum HTFU rouleur derby festina muur-kapelmuur on your left, around parcours kaperij maillot jaune bruyneel.' }),
+    Story.create({ title: 'Bought my own bike!', date: '2/2/14', description: 'La fleche wallonne stijn devolder, monte paschi eroica jens gruppetto belgium on the rivet anquetil, for echelon rouleur derby is for lovers monte paschi eroica.' }),
+    Story.create({ title: 'NYC Century', date: '9/30/14', description: 'Pau broom wagon pyrenees, coppi kolobnev tati groupo omloop het nieuwsblad bromont, van steenbergen vaughters vuelta a espana!' }),
+    Story.create({ title: 'Harpoon Point to Point', date: '8/6/15', description: `Bettini ventoux gimondi bartali, koppenberg bruyneel tiegemberg planket around fixie, giro d'italia kaperij! Res firma mitescere nescit landbouwkrediet luz ardiden gilbert valkenberg, riis the tour de mont aigoual rouleur rouleur derby pedal.` }),
+    Story.create({ title: 'Joined NYCC!', date: '3/1/16', description: 'Rund um koln planckaert virenque cat among the pigeons vos petacchi.' }),
     Timeline.create({ name: 'Biking timeline' }),
     Timeline.create({ name: 'Another timeline :o' })
   ])

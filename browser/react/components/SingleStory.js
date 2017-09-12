@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import formatDate from '../../helpers/formatDate'
 import axios from 'axios'
 
 class SingleStory extends Component {
@@ -17,16 +18,26 @@ class SingleStory extends Component {
     const { story } = this.state
     return (
       <div className="row">
-        <div className="row">
-          <h3>{ story.title }</h3>
-          <h4>{ story.date }</h4>
-          <p>{ story.description }</p>
-          {
-            story.timelines.map(tl=> (
-              <li key={ tl.id }><Link to={ `/timelines/${tl.id}` }>{ tl.name }</Link></li>
-            ))
+        <div className="col-12">
+          <div className="row">
+            <h3>{ story.title }</h3>
+            <h4>{ formatDate(story.date) }</h4>
+            <p>{ story.description }</p>
+          </div>
 
-          }
+          <div className="row">
+            <h5>Part of: </h5>
+            {
+              story.timelines.map(tl=> (
+                <Link to={ `/timelines/${tl.id}` } className="col-3 col-md-3" key={ tl.id }>
+                  <div className="card">
+                    { tl.name }
+                  </div>
+                </Link>
+              ))
+
+            }
+          </div>
         </div>
       </div>
     )

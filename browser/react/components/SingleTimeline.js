@@ -1,34 +1,42 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import formatDate from '../../helpers/formatDate'
+import ActiveStory from './ActiveStory'
 import axios from 'axios'
 
 class SingleTimeline extends Component {
   constructor() {
     super()
-    this.state = { timeline: { stories: [] } }
+    this.state = { timeline: { stories: [] }, activeStory: {} }
   }
   componentDidMount() {
     const { id } = this.props.match.params
     axios.get(`/api/timelines/${id}`)
     .then(response=> response.data)
-    .then(timeline=> this.setState({ timeline }))
+    .then(timeline=> this.setState({ timeline, activeStory: timeline.stories[0] ? timeline.stories[0] : {} }))
+  }
+  clickStory(activeStory) {
+    this.setState({ activeStory })
   }
   render() {
-    const { timeline } = this.state
+    const { timeline, activeStory } = this.state
     // start date, end date determined by events?
     return (
-      <div>
+      <div className="row">
         <h3 className="row">{ timeline.name }</h3>
-        <div className="row">
+        <div className="col-2">
         {
           timeline.stories.map(story=> (
-            <div className="col-md-2" key={ story.id }>
-              <h4>{ story.title }</h4>
-              <h5>{ story.date }</h5>
-            </div>
+            <a onClick={ ()=> this.clickStory(story) } className="clickable" key={ story.id }>
+              <div className="card">
+                <p>{ formatDate(story.date) }</p>
+                <h5>{ story.title }</h5>
+              </div>
+            </a>
           ))
         }
         </div>
+        <ActiveStory story={ activeStory } className="col-10"/>
       </div>
     )
   }

@@ -19,11 +19,11 @@ class AllTimelines extends Component {
       <div className="row">
         {
           timelines.map(timeline=> (
-            <li className="col-md-2" key={ timeline.id }>
-              <Link to={ `/timelines/${timeline.id}` }>
-                <h4>{ timeline.name }</h4>
-              </Link>
-            </li>
+            <Link to={ `/timelines/${timeline.id}` } className="col-md-3" key={ timeline.id }>
+              <div className="card">
+                  <h5>{ timeline.name }</h5>
+              </div>
+            </Link>
           ))
         }
       </div>

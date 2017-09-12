@@ -19,6 +19,7 @@ class Main extends Component {
         <Nav />
 
         <Switch>
+          <Route exact path="/" component={ AllTimelines }/>
           <Route exact path="/stories" component={ AllStories }/>
           <Route path="/stories/:id" component={ SingleStory }/>
           <Route exact path="/timelines" component={ AllTimelines }/>
